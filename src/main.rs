@@ -1,26 +1,15 @@
 
 
 
-#[derive(Debug)]
-struct P {x: String, y: i32 }
 
 fn main() {
 
-    let p = P {x: "fun".to_string(), y: 33};
-    match &p {
-        P {x, y: 0} => {
-            println!("x is {}, y is 0", x);
-        },
-        P {x, y} => println!("{} {}", x, y),
-    }
-    println! ("{:?}",p); // OK, match borrowed it
+    let a = (1, 2, 3, 4);
 
-    match p {
-        P {x, y: 0} => {
-            println!("x is {}, y is 0", x);
-        },
-        P {x, y} => println!("{} {}", x, y),
+    match &a {
+        (first, .., 7) => println!("Hey {}", first),
+        (.., mid, _) => println!("Hey {}", mid),
     }
-    // println! ("{:?}",p); // NOT OK, match moved it
+
 
 }
